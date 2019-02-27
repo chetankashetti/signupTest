@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header bg-dark text-white">
+      User Details
+    </div>
+    <div class="card-body">
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Name:</label>
+        <div class="col-sm-10">
+          <label class="col-form-label">{{user[0].name}}</label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Username:</label>
+        <div class="col-sm-10">
+          <label class="col-form-label">{{user[0].username}}</label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Email:</label>
+        <div class="col-sm-10">
+          <label class="col-form-label">{{user[0].email}}</label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Mobile Number:</label>
+        <div class="col-sm-10">
+          <label class="col-form-label">{{user[0].mobileNumber}}</label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Address:</label>
+        <div class="col-sm-10">
+          <label class="col-form-label">{{user[0].address}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-dark" (click)="logout()">logout</button>
+</div>

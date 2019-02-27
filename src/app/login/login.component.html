@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <button type="button" (click)="redirectToSignup()" class="btn btn-primary">Sign up</button>
+
+  <form #loginForm="ngForm" (submit)="checkLogin()">
+    <div class="form-group">
+      <label for="Name">Username</label>
+      <input type="text" name="Name" [(ngModel)]="username" class="form-control" id="Name" aria-describedby="emailHelp"
+        placeholder="Enter name" required #loginname="ngModel">
+    </div>
+    <div *ngIf="loginname.invalid && (loginname.dirty || loginname.touched)" class="alert alert-danger">
+      <div *ngIf="loginname.errors.required">
+        Username is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="userName">Password</label>
+      <input type="text" name="userName" class="form-control" [(ngModel)]="password" #loginpassword="ngModel"
+        id="userName" aria-describedby="emailHelp" placeholder="Enter username" required>
+    </div>
+    <div *ngIf="loginpassword.invalid && (loginpassword.dirty || loginpassword.touched)" class="alert alert-danger">
+      <div *ngIf="loginpassword.errors.required">
+        Password is required.
+      </div>
+    </div>
+    <button type="submit" [disabled]="loginForm.invalid" class="btn btn-danger">Login</button>
+    <div *ngIf="displayError" class="alert alert-danger">
+        Username or password is invalid
+      </div>
+  </form>
+
+</div>

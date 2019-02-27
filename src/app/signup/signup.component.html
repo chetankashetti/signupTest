@@ -1,0 +1,91 @@
+<div class="container-fluid">
+  <button type="button" (click)="redirectToLogin()" class="btn btn-warning">Login</button>
+  <div class="card border-info">
+    <div class="card-header text-white bg-info">
+      Sign Up
+    </div>
+    <div class="card-body">
+      <form #signupform="ngForm" (submit)="signup(); signupform.reset()">
+        <div class="form-group">
+          <label for="Name">Name</label>
+          <input type="text" name="Name" [(ngModel)]="user.name" #name="ngModel" class="form-control" id="Name"
+            aria-describedby="emailHelp" placeholder="Enter name" required>
+        </div>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+          <div *ngIf="name.errors.required">
+            Username is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="userName">User Name</label>
+          <input type="text" name="userName" class="form-control" [(ngModel)]="user.username" #username="ngModel"
+            id="userName" aria-describedby="emailHelp" placeholder="Enter username" required>
+        </div>
+        <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+          <div *ngIf="username.errors.required">
+            Name is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="userEmail">Email address</label>
+          <input type="email" name="userEmail" class="form-control" [(ngModel)]="user.email" #useremail="ngModel"
+            id="userEmail" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+            aria-describedby="emailHelp" placeholder="Enter email" required>
+        </div>
+        <div *ngIf="useremail.invalid && (useremail.dirty || useremail.touched)" class="alert alert-danger">
+          <div *ngIf="useremail.errors.pattern">
+            Enter a valid email address
+          </div>
+          <div *ngIf="useremail.errors.required">
+            Email address is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="userPassword">Password</label>
+          <input type="password" minlength="8" name="userPassword" class="form-control" [(ngModel)]="user.password"
+            #userpassword="ngModel" id="userPassword" placeholder="Password" required>
+        </div>
+        <div *ngIf="userpassword.invalid && (userpassword.dirty || userpassword.touched)" class="alert alert-danger">
+          <div *ngIf="userpassword.errors.required">
+            Password is required.
+          </div>
+          <div *ngIf="userpassword.errors.minlength">
+            Name must be at least 8 characters long.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="userConPassword">Confirm Password</label>
+          <input type="password" name="userConPassword" class="form-control" [(ngModel)]="user.conPassword"
+            #userconpassword="ngModel" id="userConPassword" aria-describedby="emailHelp" required
+            placeholder="Enter password">
+        </div>
+        <div *ngIf="userconpassword.invalid && (userconpassword.dirty || userconpassword.touched)"
+          class="alert alert-danger">
+          <div *ngIf="userconpassword.errors.required">
+            Confirm password is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="userNumber">Mobile Number</label>
+          <input required type="number" maxlength="10" name="userNumber" class="form-control"
+            [(ngModel)]="user.mobileNumber" #usernumber="ngModel" id="userNumber" aria-describedby="emailHelp"
+            placeholder="Enter mpbile number">
+        </div>
+        <div *ngIf="usernumber.invalid && (usernumber.dirty || usernumber.touched)" class="alert alert-danger">
+          <div *ngIf="usernumber.errors.maxlength">
+            Mobile number cannot be more than 10 digits.
+          </div>
+          <div *ngIf="usernumber.errors.required">
+            Mobile Number is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="userAddress">Address</label>
+          <textarea class="form-control" name="userAddress" [(ngModel)]="user.address" #useraddress="ngModel"
+            id="userAddress" aria-describedby="emailHelp" placeholder="Enter password"></textarea>
+        </div>
+        <button type="submit" [disabled]="signupform.invalid" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
